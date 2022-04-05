@@ -10,6 +10,7 @@ async function clickButton () {
     let response = await fetch(url);
 
     const container = document.getElementById('container');
+    const author = document.getElementById('author');
 
     if (response.status === 200) {
          // convert json response to an object
@@ -20,6 +21,9 @@ async function clickButton () {
 
         // const quoteBox = document.createElement('div').innerHTML = jsonObject[index].text;
         // container.append(quoteBox);
+
+        const authorBox = jsonObject[index].author;
+        author.innerHTML = authorBox;
 
         const quoteBox = jsonObject[index].text;
         container.innerHTML = quoteBox;
